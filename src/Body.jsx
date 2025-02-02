@@ -1,13 +1,10 @@
 import React from "react";
 import ClaudeRecipe from "./ClaudeRecipe";
+import IngredientsList from "./IngredientsList";
 
 export default function Main() {
   const [ingredients, setIngredients] = React.useState([]);
   const [recipeShown, setRecipeShown] = React.useState(false);
-
-  const ingredientsComponent = ingredients.map((ingredient) => (
-    <li key={ingredient}>{ingredient}</li>
-  ));
 
   function addIngredient(formData) {
     const newIngredient = formData.get("ingredient");
@@ -31,21 +28,7 @@ export default function Main() {
       </form>
 
       {ingredients.length > 0 && (
-        <section>
-          <h2>Ingredients on hand:</h2>
-          <ul className="ingredients-list" aria-live="polite">
-            {ingredientsComponent}
-          </ul>
-          {ingredients.length > 3 && (
-            <div className="get-recipe-container">
-              <div>
-                <h3>Ready for a recipe?</h3>
-                <p>Generate a recipe from your list of ingredients.</p>
-              </div>
-              <button onClick={getRecipe}>Get a recipe</button>
-            </div>
-          )}
-        </section>
+        <IngredientsList ingredients={ingredients} onClick={getRecipe} />
       )}
 
       {recipeShown && <ClaudeRecipe />}
