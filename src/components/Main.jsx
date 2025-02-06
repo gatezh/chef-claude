@@ -6,11 +6,18 @@ import { /* getRecipeFromChefClaude */ getRecipeFromMistral } from "../ai";
 export default function Main() {
   const [ingredients, setIngredients] = React.useState([]);
   const [recipe, setRecipe] = React.useState("");
+  const recipeSection = React.useRef(null);
 
   function addIngredient(formData) {
     const newIngredient = formData.get("ingredient");
     setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
   }
+
+  React.useEffect(() => {
+    if (recipe !== "" && recipeSection !== null) {
+      recipeSection.current.scrollIntoView();
+    }
+  }, [recipe]);
 
   async function getRecipe() {
     const recipeMarkdown = await getRecipeFromMistral(ingredients);
@@ -30,7 +37,11 @@ export default function Main() {
       </form>
 
       {ingredients.length > 0 && (
-        <IngredientsList ingredients={ingredients} onClick={getRecipe} />
+        <IngredientsList
+          ref={recipeSection}
+          ingredients={ingredients}
+          onClick={getRecipe}
+        />
       )}
 
       {recipe && <ClaudeRecipe recipe={recipe} />}
