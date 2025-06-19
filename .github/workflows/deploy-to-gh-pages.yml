@@ -1,5 +1,7 @@
-# Workflow for deploying static content to GitHub Pages
+# Workflow for deploying to GitHub Pages
+# Combined the following examples
 # https://vite.dev/guide/static-deploy#github-pages
+# https://bun.sh/guides/runtime/cicd
 name: Deploy to GitHub Pages
 
 on:
