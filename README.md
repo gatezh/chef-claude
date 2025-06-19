@@ -54,7 +54,8 @@ This app fetches recipe suggestions based on user-provided ingredients. The fron
 
 ## Usage
 
-- Enter comma-separated ingredients and submit.
+- Enter available ingredients
+- When you enter at least 4 ingredients **Get a recipe** button appears; press to get a recipe
 - Frontend sends request to the Worker URL; Worker queries Hugging Face API and returns recipe suggestions.
 - Display results in a clear format.
 
