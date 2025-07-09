@@ -5,6 +5,7 @@
 
 
 > **Live Demo:** See the deployed link in the repository description.
+
 > Source code of Cloudflare Worker can be found [here](https://github.com/gatezh/ai-api-worker)
 
 This app fetches recipe suggestions based on user-provided ingredients. The frontend sends requests to a Cloudflare Worker, which queries the Hugging Face API and returns recipe data.
