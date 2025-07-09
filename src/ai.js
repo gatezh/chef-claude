@@ -42,8 +42,22 @@ export async function getRecipeFromMistral(ingredientsArr) {
     });
 
     const data = await response.json();
+
+    if (!response.ok) {
+      console.error(
+        `%c☹️ Worker error. Status ${response.status}`,
+        "color: red; font-size: 18px; text-decoration: underline;"
+      );
+      throw new Error(`Worker Error: ${data.error}`);
+    }
+
     return data;
-  } catch (err) {
-    console.error(err.message);
+  } catch (error) {
+    console.error(
+      `%c😱 ${error.message}`,
+      "color: black; font-size: 18px; text-decoration: underline;"
+    );
+    return `😢 Something went wrong. \n
+Check console for more details.`;
   }
 }
