@@ -52,6 +52,10 @@ jobs:
       #############
       - name: Set up bun
         uses: oven-sh/setup-bun@v2
+        with:
+          # ℹ️ Same version is used in devcontainer
+          # ⚠️ Remember to update .devcontainer/Dockerfile if changing it here
+          bun-version: 1.2.20
       - name: Install dependencies
         run: bun install
       - name: Build
