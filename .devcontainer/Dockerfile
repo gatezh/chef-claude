@@ -3,7 +3,6 @@
 ARG BUN_VERSION=1.2.20
 
 FROM oven/bun:${BUN_VERSION}-alpine
-WORKDIR /usr/src/app
 
 # Config Bun
 ENV PATH="~/.bun/bin:${PATH}"

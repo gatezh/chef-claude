@@ -4,10 +4,10 @@
   "name": "chef-claude",
   "dockerFile": "Dockerfile",
 
-  // Mount node_modules to a subfolder inside the container
-  // "mounts": [
-  //   "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/.devcontainer_node_modules,type=volume"
-  // ],
+  // Keep node_modules out of a host machine
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
 
   // Configure tool-specific properties.
   "customizations": {
