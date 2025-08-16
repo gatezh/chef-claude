@@ -18,13 +18,13 @@
         "oven.bun-vscode"
       ]
     }
-  },
+  }
 
   // Run this after the container is created
-  "postCreateCommand": "bun install",
+  // "postCreateCommand": "bun install",
 
   // Automatically start the dev server when you attach
-  "postAttachCommand": {
-    "server": "bun run dev"
-  }
+  // "postAttachCommand": {
+  //   "server": "bun run dev"
+  // }
 }
